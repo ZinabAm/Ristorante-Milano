@@ -1,0 +1,31 @@
+.rechtliche-hinweise-content {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #fefefe;
+  border-radius: 10px;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  line-height: 1.7;
+}
+
+.rechtliche-hinweise-content h1 {
+  font-size: 2.4rem;
+  color: #c0392b;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rechtliche-hinweise-content h2 {
+  font-size: 1.6rem;
+  color: #a93226;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.rechtliche-hinweise-content p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,33 @@
+.standort {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1a1a1a; 
+    padding: 40px 20px;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #c0392b; 
+    border-bottom: 2px solid #c0392b;
+  }
+  
+  .adresse {
+    flex: 1 1 300px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  .adresse h2 {
+    color: #c0392b; /* Titel in Restaurant-Rot */
+    margin-bottom: 10px;
+  }
+  
+  .karte {
+    flex: 1 1 400px;
+    max-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  

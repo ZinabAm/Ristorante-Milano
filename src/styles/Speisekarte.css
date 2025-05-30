@@ -1,0 +1,76 @@
+.speisekarte-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.titel {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #7b0f0f;
+}
+
+.kategorie {
+  margin-bottom: 50px;
+}
+
+.kategorie h2 {
+  font-size: 1.8rem;
+  color: #7b0f0f;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.gerichteliste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gerichteliste li {
+  border-bottom: 1px dashed #ddd;
+  padding: 15px 0;
+}
+
+.gericht-kopf {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #7b0f0f;
+}
+
+.gericht-beschreibung {
+  color: #333;
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+.speisekarte-leiste {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.speisekarte-leiste button {
+  background-color: #7b0f0f;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: default;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.speisekarte-leiste button:hover {
+  background-color: #a31515;
+}
