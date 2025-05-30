@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/AdminLogin.css';
 
-
+// Funktion zur Anmeldung des Admins
 function AdminLogin({ onLogin }) {
   // Zustand für das eingegebene Passwort
   const [passwort, setPasswort] = useState('');

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/SpeisekarteVerwaltung.css';
 
+//Funktion
 function SpeisekarteVerwaltung() {
   // Zustand für alle Gerichte
   const [gerichte, setGerichte] = useState([]);
@@ -14,6 +15,8 @@ function SpeisekarteVerwaltung() {
     kategorie: 'vorspeisen',
   });
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   // Wenn ein Gericht bearbeitet wird, enthält dieser Zustand die ID
   const [bearbeitenId, setBearbeitenId] = useState(null);
 
@@ -21,7 +24,8 @@ function SpeisekarteVerwaltung() {
 
   // Lädt alle Gerichte beim ersten Laden der Seite
   useEffect(() => {
-    axios.get('http://localhost:5000/speisekarte')
+    //axios.get('http://localhost:5000/speisekarte')
+    axios.get(`${API_URL}/speisekarte`)
       .then(res => setGerichte(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -39,7 +43,8 @@ function SpeisekarteVerwaltung() {
 
     if (bearbeitenId !== null) {
       // Gericht aktualisieren (PUT)
-      axios.put(`http://localhost:5000/speisekarte/${bearbeitenId}`, neuesGericht)
+      //axios.put(`http://localhost:5000/speisekarte/${bearbeitenId}`, neuesGericht)
+      axios.put(`${API_URL}/speisekarte/${bearbeitenId}`, neuesGericht)
         .then(() => {
           // Lokale Liste aktualisieren
           setGerichte(prev => prev.map(g => g.id === bearbeitenId ? { ...neuesGericht, id: bearbeitenId } : g));
@@ -47,7 +52,8 @@ function SpeisekarteVerwaltung() {
         });
     } else {
       // Neues Gericht hinzufügen (POST)
-      axios.post('http://localhost:5000/speisekarte', neuesGericht)
+      //axios.post('http://localhost:5000/speisekarte', neuesGericht)
+      axios.post(`${API_URL}/speisekarte`, neuesGericht)
         .then(res => {
           setGerichte(prev => [...prev, { ...neuesGericht, id: res.data.id }]);
           resetForm();
@@ -63,7 +69,8 @@ function SpeisekarteVerwaltung() {
 
   // Löscht ein Gericht (DELETE)
   const handleLoeschen = (id) => {
-    axios.delete(`http://localhost:5000/speisekarte/${id}`)
+    //axios.delete(`http://localhost:5000/speisekarte/${id}`)
+    axios.delete(`${API_URL}/speisekarte/${id}`)
       .then(() => {
         setGerichte(prev => prev.filter(g => g.id !== id));
         if (id === bearbeitenId) resetForm();

@@ -18,6 +18,8 @@ function AdminDashboard() {
   });
   const [bearbeitenId, setBearbeitenId] = useState(null);
 
+   const API_URL = import.meta.env.VITE_API_URL;
+
   // Lade Daten beim Start
   useEffect(() => {
     ladeGerichte();
@@ -27,7 +29,8 @@ function AdminDashboard() {
   // GET: Speisekarte abrufen
   const ladeGerichte = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/speisekarte');
+      //const res = await axios.get('http://localhost:5000/speisekarte');
+      const res = await axios.get(`${API_URL}/speisekarte`);
       setGerichte(res.data);
     } catch (err) {
       console.error('Fehler beim Laden der Gerichte:', err);
@@ -37,7 +40,8 @@ function AdminDashboard() {
   // GET: Reservierungen abrufen
   const ladeReservierungen = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/reservierungen');
+      //const res = await axios.get('http://localhost:5000/api/reservierungen');
+      const res = await axios.get(`${API_URL}/api/reservierungen`);
       setReservierungen(res.data);
     } catch (err) {
       console.error('Fehler beim Laden der Reservierungen:', err);
@@ -55,9 +59,11 @@ function AdminDashboard() {
 
     try {
       if (bearbeitenId) {
-        await axios.put(`http://localhost:5000/speisekarte/${bearbeitenId}`, formData);
+        //await axios.put(`http://localhost:5000/speisekarte/${bearbeitenId}`, formData);
+        await axios.put(`${API_URL}/speisekarte/${bearbeitenId}`, formData);
       } else {
-        await axios.post('http://localhost:5000/speisekarte', formData);
+        //await axios.post('http://localhost:5000/speisekarte', formData);
+        await axios.post(`${API_URL}/speisekarte`, formData);
       }
       setFormData({ name: '', beschreibung: '', preis: '', kategorie: 'vorspeisen' });
       setBearbeitenId(null);
@@ -76,7 +82,8 @@ function AdminDashboard() {
   // DELETE: Gericht löschen
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/speisekarte/${id}`);
+      //await axios.delete(`http://localhost:5000/speisekarte/${id}`);
+      await axios.delete(`${API_URL}/speisekarte/${id}`);
       ladeGerichte();
     } catch (err) {
       console.error('Fehler beim Löschen:', err);
@@ -90,7 +97,8 @@ function AdminDashboard() {
         Reservierung wirklich löschen? <br />
         <button onClick={async () => {
           try {
-            await axios.delete(`http://localhost:5000/api/reservierungen/${id}`);
+            //await axios.delete(`http://localhost:5000/api/reservierungen/${id}`);
+            await axios.delete(`${API_URL}/api/reservierungen/${id}`);
             ladeReservierungen();
             toast.dismiss();
             toast.success('Reservierung gelöscht');
